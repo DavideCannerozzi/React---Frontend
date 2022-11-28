@@ -2,7 +2,7 @@ import './App.css';
 import datas from './data/datas.json'
 import { useState } from 'react'
 
-function App() {
+const App = () => {
 
   const[isOpen,setIsOpen] = useState(false)
 
@@ -12,9 +12,11 @@ function App() {
           <h3>Header</h3>
           <p>{ isOpen ? ' + ' : ' - ' }</p>
         </div>
-        <div className="content">
-          { isOpen && <p>Content Accordion</p>}
-        </div>
+        { datas.map( data => 
+             <div className="content">
+             { isOpen && <p>{ data.content }</p>}
+           </div>
+        )}
       </div>
   );
 }
